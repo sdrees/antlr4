@@ -24,6 +24,12 @@ $ git push upstream 4.8-rc1
 
 ## Update submodules
 
+Make sure you tell git to pull in the submodule (for every clone you do of antlr4):
+
+```bash
+git submodule init
+```
+
 Update the runtime submodules by running the following command:
 
 ```bash
@@ -66,6 +72,10 @@ find tool runtime -type f -exec grep -l '4\.6' {} \;
 ```
 
 Commit to repository.
+
+## Building
+
+ugh. apparently you have to `mvn install` and then `mvn compile` or some such or subdir pom.xml's won't see the latest runtime build.
 
 ## Maven Repository Settings
 
@@ -225,7 +235,9 @@ Now, go here:
 
 and on the left click "Staging Repositories". You click the staging repo and close it, then you refresh, click it and release it. It's done when you see it here:
 
-&nbsp;&nbsp;&nbsp;&nbsp;[http://repo1.maven.org/maven2/org/antlr/antlr4-runtime/](http://repo1.maven.org/maven2/org/antlr/antlr4-runtime/)
+&nbsp;&nbsp;&nbsp;&nbsp;[https://oss.sonatype.org/service/local/repositories/releases/content/org/antlr/antlr4-runtime/4.8-1/antlr4-runtime-4.8-1.jar](https://oss.sonatype.org/service/local/repositories/releases/content/org/antlr/antlr4-runtime/4.8-1/antlr4-runtime-4.8-1.jar)
+
+All releases should be here: https://repo1.maven.org/maven2/org/antlr/antlr4-runtime/
 
 Copy the jars to antlr.org site and update download/index.html
 
